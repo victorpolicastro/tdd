@@ -13,7 +13,31 @@
 # it.
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
+require_relative('../helpers/helper')
+
 RSpec.configure do |config|
+  config.define_derived_metadata do |meta|
+    meta[:aggregate_failures] = true
+  end
+
+  # config.before(:suite) do
+  #   p '>>>>>>> ANTES da suite de testes'
+  # end
+
+  # config.after(:suite) do
+  #   p '>>>>>>> DEPOIS da suite de testes'
+  # end
+
+  # config.after(:context) do
+  #   p '>>>>>>> ANTES de TODOS de testes'
+  # end
+
+  # config.after(:all) do
+  #   p '>>>>>>> DEPOIS de TODOS de testes'
+  # end
+
+  # Helper Methods de módulo
+  config.include Helper
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
   # assertions if you prefer.
